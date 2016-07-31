@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-DOTFILES=$HOME/.dotfiles
+#DOTFILES=$HOME/.dotfiles
+DOTFILES=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 echo -e "\nCreating symlinks"
 echo "=============================="
@@ -42,15 +43,16 @@ done
 echo -e "\n\nCreating vim symlinks"
 echo "=============================="
 
-typeset -A vimfiles
-vimfiles[~/.vim]=$DOTFILES/config/nvim
-vimfiles[~/.vimrc]=$DOTFILES/config/nvim/init.vim
+if [ -e ~/.vim ]; then 
+   echo ".vim folder already exists ... skipping"
+else
+   echo "Creating symlink for .vim"
+   ln -s $DOTFILES/config/nvim ~/.vim
+fi
 
-for file in "${!vimfiles[@]}"; do
-    if [ -e ${file} ]; then
-        echo "${file} already exists... skipping"
-    else
-        echo "Creating symlink for $file"
-        ln -s ${vimfiles[$file]} $file
-    fi
-done
+if [ -e ~/.vimrc ]; then
+   echo ".vimrc already exists ... skipping"
+else
+   echo "Creating symlink for .vimrc"
+   ln -s $DOTFILES/config/nvim/init.vim ~/.vimrc
+fi

@@ -6,5 +6,9 @@ plug.vim.old
 config/nvim/spell
 config/nvim/shada
 config/nvim/plugged
+config/nvim/configstore
+config/nvim/deluge
+config/nvim/gtk-2.0
+
 vim/vim.symlink/spell/
 vim/vim.symlink/plugged/

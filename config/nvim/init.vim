@@ -2,13 +2,12 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " colorschemes
-Plug 'dracula/vim'
-
+Plug 'altercation/vim-colors-solarized'
 
 " utilities
 " Plug 'ctrlpvim/ctrlp.vim' " fuzzy file finder, mapped to <leader>t
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] } | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons' " file drawer
+Plug 'scrooloose/nerdtree', | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons' " file drawer
 Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
 Plug 'Raimondi/delimitMate' " automatic closing of quotes, parenthesis, brackets, etc.
 Plug 'tpope/vim-commentary' " comment stuff out
@@ -221,7 +220,8 @@ syntax on
 
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
 " execute "colorscheme ".$THEME
-colorscheme dracula
+colorscheme solarized
+set background=dark
 highlight Comment cterm=italic
 highlight htmlArg cterm=italic
 
@@ -560,7 +560,7 @@ autocmd FileType javascript let g:neomake_javascript_enabled_makers = findfile('
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_theme='dracula'
+let g:airline_theme='solarized'
 let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
 let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
 let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in tabline
@@ -575,7 +575,7 @@ let g:SuperTabCrMapping = 0
 
 if (has("gui_running"))
     set guioptions=egmrt
-    set background=light
+    set background=dark
     colorscheme solarized
     let g:airline_left_sep=''
     let g:airline_right_sep=''
