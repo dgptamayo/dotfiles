@@ -24,12 +24,14 @@ brew install zsh
 brew install highlight
 brew install nvm
 brew install z
-brew install markdown
 brew install diff-so-fancy
 brew install zsh-syntax-highlighting
 brew install zsh-autosuggestions
+brew install ctags-exuberant
 
 # install neovim
 brew install neovim/neovim/neovim
 
+# misc tools
+brew cask install spectacle # tiling manager for osx
 # exit 0

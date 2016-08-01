@@ -12,7 +12,6 @@ Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack
 Plug 'Raimondi/delimitMate' " automatic closing of quotes, parenthesis, brackets, etc.
 Plug 'tpope/vim-commentary' " comment stuff out
 Plug 'tpope/vim-unimpaired' " mappings which are simply short normal mode aliases for commonly used ex commands
-Plug 'tpope/vim-endwise' " automatically add end in ruby
 Plug 'tpope/vim-ragtag' " endings for html, xml, etc. - ehances surround
 Plug 'tpope/vim-surround' " mappings to easily delete, change and add such surroundings in pairs, such as quotes, parens, etc.
 Plug 'benmills/vimux' " tmux integration for vim
@@ -23,10 +22,9 @@ Plug 'benekastah/neomake' " neovim replacement for syntastic using neovim's job 
 Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
 Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . command
 Plug 'garbas/vim-snipmate' " snippet manager
-Plug 'editorconfig/editorconfig-vim' " .editorconfig support
-Plug 'MarcWeber/vim-addon-mw-utils' " interpret a file by function and cache file automatically
-Plug 'tomtom/tlib_vim' " utility functions for vim
-Plug 'sotte/presenting.vim', { 'for': 'markdown' } " a simple tool for presenting slides in vim based on text files
+Plug 'MarcWeber/vim-addon-mw-utils' " interpret a file by function and cache file automatically - snipmate dependency
+Plug 'tomtom/tlib_vim', " snipmate dependency
+" Plug 'sotte/presenting.vim', { 'for': 'markdown' } " a simple tool for presenting slides in vim based on text files
 Plug 'ervandew/supertab' " Perform all your vim insert mode completions with Tab
 Plug 'tpope/vim-dispatch' " asynchronous build and test dispatcher
 " Plug 'mtth/scratch.vim'
@@ -36,11 +34,11 @@ Plug 'AndrewRadev/splitjoin.vim' " single/multi line code handler: gS - split on
 Plug 'vim-scripts/matchit.zip' " extended % matching
 Plug 'tpope/vim-sleuth' " detect indent style (tabs vs. spaces)
 Plug 'sickill/vim-pasta' " context-aware pasting
-Plug 'junegunn/goyo.vim', { 'on': 'Goyo' } " distraction-free writing
-Plug 'junegunn/limelight.vim', { 'on': 'Limelight' } " focus tool. Good for presentating with vim
+" Plug 'junegunn/limelight.vim', { 'on': 'Limelight' } " focus tool. Good for presentating with vim
+Plug 'xolox/vim-easytags' "automated tag generation and syntax highlighting
+Plug 'xolox/vim-misc' "vim-easytags dependency
 
 " language-specific plugins
-Plug 'mattn/emmet-vim', { 'for': 'html' } " emmet support for vim - easily create markdup wth CSS-like syntax
 Plug 'gregsexton/MatchTag', { 'for': 'html' } " match tags in html, similar to paren support
 Plug 'othree/html5.vim', { 'for': 'html' } " html5 support
 " Plug 'pangloss/vim-javascript', { 'for': 'javascript' } " JavaScript support
@@ -65,9 +63,9 @@ Plug 'ap/vim-css-color', { 'for': ['css','stylus','scss'] } " set the background
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' } " CSS3 syntax support
 Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' } " Open markdown files in Marked.app - mapped to <leader>m
 Plug 'tpope/vim-markdown', { 'for': 'markdown' } " markdown support
+Plug 'stanangeloff/php.vim' " php support 
+Plug 'pearofducks/ansible-vim' "ansible support 
 Plug 'fatih/vim-go', { 'for': 'go' } " go support
-Plug 'timcharper/textile.vim', { 'for': 'textile' } " textile support
-Plug 'tclem/vim-arduino' " arduino support - compile wihtout needing to open the arduino IDE
 
 call plug#end()
 
@@ -136,8 +134,6 @@ set laststatus=2 " show the satus line all the time
 augroup configgroup
     autocmd!
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-    autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-    autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType html setlocal ts=4 sts=4 sw=4 noexpandtab indentkeys-=*<return>
     autocmd FileType jade setlocal ts=2 sts=2 sw=2 noexpandtab
     autocmd FileType markdown,textile setlocal textwidth=0 wrapmargin=0 wrap spell
@@ -152,6 +148,7 @@ augroup configgroup
     " save all files on focus lost, ignoring warnings about untitled buffers
     autocmd FocusLost * silent! wa
 
+    autocmd BufNewFile,BufRead *.yml set filetype=yaml
     autocmd BufNewFile,BufRead *.ejs set filetype=html
     autocmd BufNewFile,BufRead *.ino set filetype=c
     autocmd BufNewFile,BufRead *.svg set filetype=xml
@@ -166,11 +163,6 @@ augroup configgroup
     " make quickfix windows take all the lower section of the screen
     " when there are multiple windows open
     autocmd FileType qf wincmd J
-
-    autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-    let g:markdown_fenced_languages = ['css', 'javascript', 'js=javascript', 'json=javascript', 'stylus', 'html']
-
-    " autocmd! BufEnter * call ApplyLocalSettings(expand('<afile>:p:h'))
 
     autocmd BufNewFile,BufRead,BufWrite *.md syntax match Comment /\%^---\_.\{-}---$/
 
