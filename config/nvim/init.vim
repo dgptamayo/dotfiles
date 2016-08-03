@@ -3,7 +3,8 @@ call plug#begin('~/.config/nvim/plugged')
 
 " colorschemes
 " Plug 'altercation/vim-colors-solarized'
-Plug 'w0ng/vim-hybrid'
+" Plug 'w0ng/vim-hybrid'
+Plug 'chriskempson/base16-vim'
 
 " utilities
 " Plug 'ctrlpvim/ctrlp.vim' " fuzzy file finder, mapped to <leader>t
@@ -221,10 +222,14 @@ set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
 " set background=dark
 
 " vim-hybrid colorscheme
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
-set background=dark
-colorscheme hybrid
+" let g:hybrid_custom_term_colors = 1
+" let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
+" set background=dark
+" colorscheme hybrid
+
+" colorscheme base16
+let base16colorspace=256
+
 
 highlight Comment cterm=italic
 highlight htmlArg cterm=italic
@@ -564,7 +569,7 @@ autocmd FileType javascript let g:neomake_javascript_enabled_makers = findfile('
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_theme='hybrid'
+let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
 let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
 let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in tabline
@@ -580,11 +585,11 @@ let g:SuperTabCrMapping = 0
 if (has("gui_running"))
     set guioptions=egmrt
     set background=dark
-    colorscheme hybrid 
+    colorscheme base16 
     let g:airline_left_sep=''
     let g:airline_right_sep=''
     let g:airline_powerline_fonts=0
-    let g:airline_theme='hybrid'
+    let g:airline_theme='base16'
 endif
 
 call ApplyLocalSettings(expand('.'))

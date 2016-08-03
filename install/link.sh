@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-#DOTFILES=$HOME/.dotfiles
-DOTFILES=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+DOTFILES=$HOME/.dotfiles
+#DOTFILES=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 echo -e "\nCreating symlinks"
 echo "=============================="
