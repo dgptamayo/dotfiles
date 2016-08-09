@@ -87,4 +87,7 @@ if [ -z ${DOTFILES_LOADED+x} ]; then
     source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
+# add virtualenvwrapper
+source /usr/local/bin/virtualenvwrapper.sh
+
 export DOTFILES_LOADED=1
