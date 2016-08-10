@@ -87,4 +87,9 @@ if [ -z ${DOTFILES_LOADED+x} ]; then
     source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
+# python virtualenv
+if [[ -a /usr/local/bin/virtualenvwrapper.sh ]]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
+
 export DOTFILES_LOADED=1
