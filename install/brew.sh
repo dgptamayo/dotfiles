@@ -29,6 +29,10 @@ brew install zsh-syntax-highlighting
 brew install zsh-autosuggestions
 brew install ctags-exuberant
 
+# eslint
+sudo npm install -g eslint
+sudo npm install -g jshint
+
 # install neovim
 brew install neovim/neovim/neovim
 
