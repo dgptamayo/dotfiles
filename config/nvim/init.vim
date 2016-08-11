@@ -576,6 +576,10 @@ let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs a
 let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in tabline
 let g:airline#extensions#tabline#show_splits = 0
 
+let g:airline_right_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep= ''
+let g:airline_left_sep = ''
 
 " don't hide quotes in json files
 let g:vim_json_syntax_conceal = 0
