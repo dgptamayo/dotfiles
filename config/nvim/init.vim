@@ -158,6 +158,7 @@ augroup configgroup
     autocmd BufNewFile,BufRead .babelrc set filetype=json
     autocmd BufNewFile,BufRead .jshintrc set filetype=json
     autocmd BufNewFile,BufRead .eslintrc set filetype=json
+    autocmd BufNewFile,BufRead .tf set filetype=json
     autocmd BufNewFile,BufRead *.es6 set filetype=javascript
 
 	" close help files on 'q'
