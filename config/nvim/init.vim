@@ -7,6 +7,7 @@ Plug 'w0ng/vim-hybrid'
 Plug 'chriskempson/base16-vim'
 
 " utilities
+Plug 'jamessan/vim-gnupg' "GNUPG plugin for password files
 " Plug 'ctrlpvim/ctrlp.vim' " fuzzy file finder, mapped to <leader>t
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
 Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons' " file drawer
@@ -115,7 +116,7 @@ if has('mouse')
     " set ttymouse=xterm2
 endif
 
-set clipboard=unnamed
+set clipboard+=unnamedplus
 
 " faster redrawing
 set ttyfast
