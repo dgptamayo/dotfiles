@@ -19,6 +19,7 @@
 	"globalstrict": false,
 	"immed": true,
 	"iterator": false,
+	"jasmine", true,
 	"jquery": false,
 	"lastsemic": false,
 	"latedef": false,

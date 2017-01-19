@@ -92,4 +92,6 @@ if [[ -a /usr/local/bin/virtualenvwrapper.sh ]]; then
     source /usr/local/bin/virtualenvwrapper.sh
 fi
 
+bindkey '^R' history-incremental-search-backward
+
 export DOTFILES_LOADED=1
