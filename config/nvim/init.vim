@@ -7,7 +7,8 @@ Plug 'w0ng/vim-hybrid'
 Plug 'chriskempson/base16-vim'
 
 " utilities
-Plug 'hashivim/vim-terraform' "Terraform
+Plug 'hashivim/vim-terraform'
+Plug 'hashivim/vim-nomadproject'
 Plug 'jamessan/vim-gnupg' "GNUPG plugin for password files
 " Plug 'ctrlpvim/ctrlp.vim' " fuzzy file finder, mapped to <leader>t
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
@@ -138,6 +139,7 @@ set laststatus=2 " show the satus line all the time
 " file type specific settings
 augroup configgroup
     autocmd!
+    autocmd FileType nomad setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType html setlocal ts=4 sts=4 sw=4 noexpandtab indentkeys-=*<return>
     autocmd FileType jade setlocal ts=2 sts=2 sw=2 noexpandtab
@@ -153,6 +155,7 @@ augroup configgroup
     " save all files on focus lost, ignoring warnings about untitled buffers
     autocmd FocusLost * silent! wa
 
+    autocmd BufNewFile,BufRead *.nomad set filetype=nomad
     autocmd BufNewFile,BufRead *.yml set filetype=yaml
     autocmd BufNewFile,BufRead *.ejs set filetype=html
     autocmd BufNewFile,BufRead *.ino set filetype=c
