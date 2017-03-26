@@ -92,6 +92,11 @@ if [[ -a /usr/local/bin/virtualenvwrapper.sh ]]; then
     source /usr/local/bin/virtualenvwrapper.sh
 fi
 
+# VMWare fusion vmrun (OSX)
+# VMware Fusion
+if [ -d "/Applications/VMware Fusion.app/Contents/Library" ]; then
+    export PATH=$PATH:"/Applications/VMware Fusion.app/Contents/Library"
+fi
 bindkey '^R' history-incremental-search-backward
 
 export DOTFILES_LOADED=1
