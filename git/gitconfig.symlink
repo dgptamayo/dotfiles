@@ -1,9 +1,9 @@
 # gitconfig
 [user]
-    name = Nick Nisi
-    email = nick@nisi.org
+    name = Domingo Tamayo
+    email = dgptamayo@gmail.com 
 [github]
-    user = nicknisi
+    user = dgptamayo
 [init]
     templatedir = ~/.dotfiles/git/templates
 [alias]
