@@ -7,6 +7,7 @@ Plug 'w0ng/vim-hybrid'
 Plug 'chriskempson/base16-vim'
 
 " utilities
+Plug 'maralla/vim-toml-enhance' "toml file
 Plug 'hashivim/vim-terraform'
 Plug 'hashivim/vim-nomadproject'
 Plug 'jamessan/vim-gnupg' "GNUPG plugin for password files
