@@ -119,7 +119,7 @@ if has('mouse')
     " set ttymouse=xterm2
 endif
 
-set clipboard+=unnamedplus
+set clipboard=unnamed
 
 " faster redrawing
 set ttyfast
