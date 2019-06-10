@@ -9,6 +9,8 @@ else # OS X `ls`
 fi
 
 alias vim="nvim"
+alias python="python3"
+alias pip="pip3"
 
 # Filesystem aliases
 alias ..='cd ..'

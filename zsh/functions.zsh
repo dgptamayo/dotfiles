@@ -28,17 +28,6 @@ function f() {
     find . -name "$1"
 }
 
-function ng-stop() {
-    sudo launchctl stop homebrew.mxcl.nginx
-}
-
-function ng-start() {
-    sudo launchctl start homebrew.mxcl.nginx
-}
-function ng-restart() {
-     sudo launchctl start homebrew.mxcl.nginx
-}
-
 function dns-restart() {
     sudo launchctl stop homebrew.mxcl.dnsmasq
     sudo launchctl start homebrew.mxcl.dnsmasq
@@ -108,12 +97,6 @@ function extract() {
     fi
 }
 
-function scpp() {
-    scp "$1" nicknisi@nicknisi.com:/var/www/nicknisi.com/public_html/share;
-    echo "http://nicknisi.com/share/$1" | pbcopy;
-    echo "Copied to clipboard: http://nicknisi.com/share/$1"
-}
-
 # syntax highlight the contents of a file or the clipboard and place the result on the clipboard
 function hl() {
     if [ -z "$3" ]; then
@@ -129,4 +112,9 @@ function hl() {
     fi
 
     echo $src | highlight -O rtf --syntax $1 --font Inconsoloata --style $style --line-number --font-size 24 | pbcopy
+}
+
+function compresspdf() {
+	echo 'Usage: compresspdf [input file] [output file] [screen|ebook|printer|prepress]'
+        gs -sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH -dPDFSETTINGS=/${3:-"screen"} -dCompatibilityLevel=1.4 -sOutputFile="$2" "$1"
 }

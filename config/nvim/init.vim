@@ -46,9 +46,9 @@ Plug 'xolox/vim-misc' "vim-easytags dependency
 
 " language-specific plugins
 Plug 'gregsexton/MatchTag', { 'for': 'html' } " match tags in html, similar to paren support
-Plug 'othree/html5.vim', { 'for': 'html' } " html5 support
-" Plug 'pangloss/vim-javascript', { 'for': 'javascript' } " JavaScript support
-Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' } " JavaScript indent support
+Plug 'othree/html5.vim', { 'for': 'reveal.jshtml' } " html5 support
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' } " JavaScript support
+" Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' } " JavaScript indent support
 Plug 'moll/vim-node', { 'for': 'javascript' } " node support
 " Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' } " JavaScript syntax plugin
 Plug 'othree/yajs.vim', { 'for': 'javascript' } " JavaScript syntax plugin
@@ -140,8 +140,9 @@ set laststatus=2 " show the satus line all the time
 augroup configgroup
     autocmd!
     autocmd FileType nomad setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd FileType js setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-    autocmd FileType html setlocal ts=4 sts=4 sw=4 noexpandtab indentkeys-=*<return>
+    autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=*<return>
     autocmd FileType jade setlocal ts=2 sts=2 sw=2 noexpandtab
     autocmd FileType markdown,textile setlocal textwidth=0 wrapmargin=0 wrap spell
     autocmd FileType .xml exe ":silent %!xmllint --format --recover - 2>/dev/null"
@@ -614,3 +615,4 @@ call ApplyLocalSettings(expand('.'))
 
 
 " vim:foldmethod=marker:foldlevel=0
+
